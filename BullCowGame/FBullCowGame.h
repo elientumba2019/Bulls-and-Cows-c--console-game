@@ -1,6 +1,11 @@
 #pragma once
 #include <string>
 
+
+
+
+
+
 using FString = std::string;
 using int32 = int;
 
@@ -10,6 +15,24 @@ struct FBullCowCount
 	int32 Bulls = 0;
 	int32 Cows = 0;
 };
+
+
+//enumeration for guess validity
+enum class EwordStatus
+{
+	OK,
+	Not_Isogram
+};
+
+
+//enumeration for reseting game
+enum class EResetStatus
+{
+	No_Hidden_Word,
+	OK
+};
+
+
 
 class FBullCowGame
 {
@@ -23,7 +46,7 @@ public:
 	bool IsGameWon() const;
 	
 	void Reset(); // TODO make a more rich return value.
-	bool CheckGuessValidity(FString) const; // TODO make a more rich return value.
+	EwordStatus CheckGuessValidity(FString) const; 
 	FBullCowCount SubmitGuess(FString);
 
 

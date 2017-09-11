@@ -23,9 +23,11 @@ void FBullCowGame::Reset()
 
 
 
-bool FBullCowGame::CheckGuessValidity(FString) const
+
+//returns an enumeration
+EwordStatus FBullCowGame::CheckGuessValidity(FString) const
 {
-	return false;
+	return EwordStatus::OK; // TODO make actual error
 }
 
 
