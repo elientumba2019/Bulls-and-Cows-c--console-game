@@ -21,16 +21,13 @@ struct FBullCowCount
 enum class EwordStatus
 {
 	OK,
-	Not_Isogram
+	Not_Isogram,
+	Wrong_Length,
+	Not_Lowercase
 };
 
 
-//enumeration for reseting game
-enum class EResetStatus
-{
-	No_Hidden_Word,
-	OK
-};
+
 
 
 
