@@ -78,6 +78,7 @@ FText GetGuess()
 	return Guess;
 }
 
+
 bool AskToPlayAgain()
 {
 	std::cout << "Do you want to play again (y/n)? ";
