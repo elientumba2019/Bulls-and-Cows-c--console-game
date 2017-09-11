@@ -25,9 +25,28 @@ void FBullCowGame::Reset()
 
 
 //returns an enumeration
-EwordStatus FBullCowGame::CheckGuessValidity(FString) const
+EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess) const
 {
-	return EwordStatus::OK; // TODO make actual error
+	if (false)//if the guess isnt anisogram 
+	{
+		return EGuessStatus::Not_Isogram;
+	}
+
+	else if (false)//if the guess is not all lower case
+	{
+		return EGuessStatus::Not_Isogram;
+	}
+		
+	else if (Guess.length() != FBullCowGame::GetHiddenWordLength())//if the guess length is 
+	{
+		return EGuessStatus::Wrong_Length;
+	}
+		
+	else//otherwise
+	{
+	
+		return EGuessStatus::OK;
+	}	 
 }
 
 
