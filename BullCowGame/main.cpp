@@ -67,7 +67,7 @@ void PlayGame()
 
 
 	}
-	// TODO summarise game
+	
 	PrintGameSummary();
 	return;
 }

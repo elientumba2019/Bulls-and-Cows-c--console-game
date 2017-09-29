@@ -1,4 +1,9 @@
 #include "FBullCowGame.h"
+#include<map>
+#define TMap = std::map;
+
+
+
 
 using int32 = int;
 
@@ -28,14 +33,14 @@ void FBullCowGame::Reset()
 //returns an enumeration
 EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess) const
 {
-	if (false)//if the guess isnt anisogram 
+	if (!IsIsogram(Guess))//if the guess isnt anisogram 
 	{
 		return EGuessStatus::Not_Isogram;
 	}
 
 	else if (false)//if the guess is not all lower case
 	{
-		return EGuessStatus::Not_Isogram;
+		return EGuessStatus::Not_Isogram; //TODO write function
 	}
 		
 	else if (Guess.length() != FBullCowGame::GetHiddenWordLength())//if the guess length is 
@@ -49,6 +54,7 @@ EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess) const
 		return EGuessStatus::OK;
 	}	 
 }
+
 
 
 
@@ -100,6 +106,15 @@ FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess)
 		FBullCowGame::bGameIsWon = false;
 	}
 	return BullCowCount;
+}
+
+
+
+
+//check whether a given word is an isogram or not
+bool FBullCowGame::IsIsogram(FString Guess) const
+{
+	return true;;
 }
 
 
