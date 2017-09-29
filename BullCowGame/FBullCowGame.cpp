@@ -3,8 +3,6 @@
 #define TMap = std::map;
 
 
-
-
 using int32 = int;
 
 FBullCowGame::FBullCowGame() { Reset(); }
@@ -114,6 +112,36 @@ FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess)
 //check whether a given word is an isogram or not
 bool FBullCowGame::IsIsogram(FString Guess) const
 {
+
+	//treat 0 and 1 length word as isogram
+	if(Guess.length() <= 1)
+	{
+		return true;
+	}
+
+	//set up our map
+	//TMap<char, bool> LetterSeen;
+	std::map<char , bool> LetterSeen;
+
+	//loop through he word
+	for (auto Letter : Guess)
+	{
+
+		Letter = tolower(Letter);
+		//if the letter is contained in the map
+
+		if (LetterSeen[Letter])
+		{
+			return false; // we do not have an isogram
+		}
+
+		else //otherwise 
+		{
+
+			//add the letter to the map
+			LetterSeen[Letter] = true;
+		}
+	}
 	return true;;
 }
 
