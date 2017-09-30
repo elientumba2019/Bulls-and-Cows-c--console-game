@@ -36,7 +36,7 @@ EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess) const
 		return EGuessStatus::Not_Isogram;
 	}
 
-	else if (false)//if the guess is not all lower case
+	else if (!IsLowerCase(Guess))//if the guess is not all lower case
 	{
 		return EGuessStatus::Not_Isogram; //TODO write function
 	}
@@ -71,6 +71,7 @@ bool FBullCowGame::IsGameWon() const
 // receives a VALID guess, incriments turn, and returns count
 FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess)
 {
+
 	MyCurrentTry++;
 	FBullCowCount BullCowCount;
 	int32 WordLength = MyHiddenWord.length(); // assuming the same length as guess
@@ -148,5 +149,26 @@ bool FBullCowGame::IsIsogram(FString Guess) const
 
 
 
+//checks whether the letter in a word are lowecases
+bool FBullCowGame::IsLowerCase(FString Word) const
+{
+
+	for (auto Letter : Word)
+	{
+		if (!islower(Letter)) 
+		{
+			return false;
+		}
+
+	}
+
+	return true;
+}
+
+
+
+
 //returns the length of the hidden word
 int32 FBullCowGame::GetHiddenWordLength() const {return FBullCowGame::MyHiddenWord.length();}
+
+
